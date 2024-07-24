@@ -453,6 +453,9 @@ class MainWindow:
         self.graph = canvas.get_tk_widget()
         self.graph.pack(side=TOP, fill=BOTH, expand=1)
 
+        # reset output_list so cardioFeed can be run again
+        self.output_list = [["T", "HR", "RR", "M", "S"]]
+        
         self.button2 = Button(root, text="Back", command=lambda: self.cardioFeed_gui(control), font=("Arial", 12))
         self.button2.pack(pady=30)
 
@@ -464,7 +467,8 @@ class MainWindow:
         try:
             # receive for output
             output = self.output_queue.get_nowait()
-
+            # print(output)
+            
             # append output to list
             self.append_to_list(output, control)
 
