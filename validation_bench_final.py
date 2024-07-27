@@ -819,6 +819,9 @@ class MainWindow:
                              self.dirButton,
                              self.nextButton]
 
+def quit():
+    root.quit()
+    root.destroy()
 
 if __name__ == '__main__':
     global root
